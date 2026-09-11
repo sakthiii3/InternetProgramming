@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: internet-programming-portal
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: DB_HOST
+        value: ""  # Set this in the Render dashboard to your external MySQL host
+      - key: DB_USER
+        value: ""  # Set this in the Render dashboard
+      - key: DB_PASS
+        value: ""  # Set this in the Render dashboard
+      - key: DB_NAME
+        value: ""  # Set this in the Render dashboard

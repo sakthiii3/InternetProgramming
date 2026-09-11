@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- UNIT IV: XML structure, elements and attributes -->
+<!-- This file plays the role of a small "course feed", similar in spirit
+     to an RSS/Atom feed: a root element containing a repeated child element,
+     each with attributes (id, level) and nested elements (title, duration, instructor). -->
+<?xml-stylesheet type="text/xsl" href="courses.xsl"?>
+<courses>
+    <course id="IP101" level="core">
+        <title>Internet Programming</title>
+        <duration>60 hrs</duration>
+        <instructor>Dr. Rao</instructor>
+        <description>HTML5, CSS3, JavaScript, PHP, MySQL, XML and AJAX for building web applications.</description>
+    </course>
+
+    <course id="DS102" level="core">
+        <title>Data Structures</title>
+        <duration>50 hrs</duration>
+        <instructor>Prof. Iyer</instructor>
+        <description>Arrays, linked lists, stacks, queues, trees and graphs with complexity analysis.</description>
+    </course>
+
+    <course id="CN103" level="elective">
+        <title>Computer Networks</title>
+        <duration>45 hrs</duration>
+        <instructor>Dr. Sharma</instructor>
+        <description>OSI/TCP-IP models, routing, switching and network security fundamentals.</description>
+    </course>
+
+    <course id="DB104" level="core">
+        <title>Database Systems</title>
+        <duration>55 hrs</duration>
+        <instructor>Prof. Nair</instructor>
+        <description>Relational design, normalization, SQL and transaction management.</description>
+    </course>
+
+    <course id="OS105" level="elective">
+        <title>Operating Systems</title>
+        <duration>48 hrs</duration>
+        <instructor>Dr. Verma</instructor>
+        <description>Processes, threads, scheduling, memory management and file systems.</description>
+    </course>
+</courses>

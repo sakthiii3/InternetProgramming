@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<!-- UNIT I: HTML5 document structure and <!DOCTYPE html> declaration -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Web Portal | Internet Programming Lab</title>
+    <meta name="description" content="A single-page academic project demonstrating HTML5, CSS3, JavaScript, PHP, MySQL, XML and AJAX concepts from the Internet Programming syllabus.">
+
+    <!-- UNIT I: External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- UNIT I: Internal / Embedded CSS (works alongside external stylesheet to show cascading) -->
+    <style>
+        /* This embedded block demonstrates INTERNAL CSS. It is intentionally small
+           so the external stylesheet (css/style.css) still governs most of the design,
+           illustrating the CSS cascade: inline > internal > external (by specificity/order). */
+        .embedded-css-demo {
+            border: 2px dashed var(--accent, #E8A33D);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            background: rgba(232, 163, 61, 0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- UNIT I: Semantic HEADER element with NAVIGATION -->
+    <!-- ============================================================ -->
+    <header class="site-header" id="top">
+        <div class="nav-wrap">
+            <a href="#top" class="brand">
+                <span class="brand-mark">IP</span>
+                <span class="brand-text">Student Web Portal</span>
+            </a>
+
+            <!-- UNIT I: nav element with anchor links + smooth scrolling (CSS + JS) -->
+            <nav class="main-nav" id="mainNav" aria-label="Primary">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#html5">HTML5</a>
+                <a href="#css3">CSS3</a>
+                <a href="#javascript">JavaScript</a>
+                <a href="#registration">Registration</a>
+                <a href="#quiz">Quiz</a>
+                <a href="#ajax">AJAX</a>
+                <a href="#xml">XML</a>
+                <a href="#webservices">Web Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- UNIT II: Theme switcher (JS + localStorage-free in-memory toggle) -->
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark mode" title="Toggle theme">
+                    <span id="themeIcon" aria-hidden="true">&#9789;</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- HOME / HERO SECTION -->
+    <!-- ============================================================ -->
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-inner">
+                <p class="hero-eyebrow">Internet Programming &mdash; Mini Project</p>
+                <h1 class="hero-title">One page.<br>Every unit of the syllabus, working.</h1>
+                <p class="hero-sub">
+                    A single-page student portal built with plain HTML5, CSS3, JavaScript, PHP and MySQL &mdash;
+                    register for a course, take a live quiz, search a database over AJAX, and watch an XML
+                    course feed render itself, all without a single page reload.
+                </p>
+                <div class="hero-actions">
+                    <a href="#registration" class="btn btn-primary">Start Registration</a>
+                    <a href="#quiz" class="btn btn-ghost">Try the Quiz</a>
+                </div>
+
+                <!-- UNIT II: Digital clock/date built with the JavaScript Date object -->
+                <div class="hero-clock" id="digitalClock" aria-live="polite">
+                    <span id="clockTime">00:00:00</span>
+                    <span id="clockDate">Loading date&hellip;</span>
+                </div>
+            </div>
+            <div class="hero-panel embedded-css-demo">
+                <p><strong>Live status</strong></p>
+                <ul id="heroStatusList" class="status-list">
+                    <li>Client script: <span id="statusJs">checking&hellip;</span></li>
+                    <li>Theme: <span id="statusTheme">light</span></li>
+                    <li>Server time source: <span id="statusClock">JS Date()</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ABOUT SECTION: article / aside, lists, table -->
+        <!-- ============================================================ -->
+        <section id="about" class="section">
+            <div class="section-head">
+                <p class="eyebrow">About this project</p>
+                <h2>Why this portal exists</h2>
+            </div>
+
+            <div class="about-grid">
+                <!-- UNIT I: <article> semantic element -->
+                <article class="card article-card">
+                    <h3>Project objective</h3>
+                    <p>
+                        This portal is a hands-on academic project for the Internet Programming lab.
+                        Instead of separate disconnected demo files, every syllabus topic is wired into
+                        one working student portal: registration, a quiz, search, and live data feeds.
+                    </p>
+
+                    <h4>What you can actually do here</h4>
+                    <!-- UNIT I: Ordered list -->
+                    <ol>
+                        <li>Fill out and submit the registration form to a PHP + MySQL backend</li>
+                        <li>Take a 10-question quiz that is scored and stored in the database</li>
+                        <li>Search student/course records live via AJAX (no page reload)</li>
+                        <li>Watch a course catalogue load from an XML file into cards</li>
+                        <li>Call a JSON web-service endpoint and see the raw response</li>
+                    </ol>
+
+                    <h4>Technologies used</h4>
+                    <!-- UNIT I: Unordered list -->
+                    <ul class="tech-list">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>Vanilla JavaScript (DOM, AJAX, JSON)</li>
+                        <li>PHP 8</li>
+                        <li>MySQL</li>
+                        <li>XML + XSLT concept</li>
+                    </ul>
+
+                    <h4>Key terms</h4>
+                    <!-- UNIT I: Definition list -->
+                    <dl>
+                        <dt>AJAX</dt>
+                        <dd>Asynchronous JavaScript And XML &mdash; fetching data from the server without reloading the page.</dd>
+                        <dt>DOM</dt>
+                        <dd>Document Object Model &mdash; the live tree of elements JavaScript can read and modify.</dd>
+                        <dt>API</dt>
+                        <dd>Application Programming Interface &mdash; here, a PHP endpoint returning JSON.</dd>
+                    </dl>
+                </article>
+
+                <!-- UNIT I: <aside> semantic element -->
+                <aside class="card aside-card">
+                    <h3>Client &harr; Server, in one picture</h3>
+                    <p>Every AJAX feature on this page follows the same round trip:</p>
+                    <ol class="flow-list">
+                        <li><strong>Client</strong> &mdash; browser JavaScript builds a request</li>
+                        <li><strong>HTTP Request</strong> &mdash; sent to a PHP file on the server</li>
+                        <li><strong>Server</strong> &mdash; PHP validates input, queries MySQL</li>
+                        <li><strong>HTTP Response</strong> &mdash; PHP echoes a JSON string</li>
+                        <li><strong>Client</strong> &mdash; JavaScript parses JSON and updates the DOM</li>
+                    </ol>
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=60&auto=format"
+                         alt="Laptop displaying code, representing client-side web development"
+                         class="aside-img" loading="lazy">
+                </aside>
+            </div>
+
+            <!-- UNIT I: Table -->
+            <div class="table-wrap">
+                <h3>Syllabus units at a glance</h3>
+                <table class="data-table">
+                    <caption>Overview of units demonstrated in this single page</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Unit</th>
+                            <th scope="col">Topic</th>
+                            <th scope="col">Where it lives on this page</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>I</td><td>HTML5 &amp; CSS3</td><td><a href="#html5">HTML5 section</a> / <a href="#css3">CSS3 section</a></td></tr>
+                        <tr><td>II</td><td>JavaScript &amp; client-side programming</td><td><a href="#javascript">JavaScript section</a></td></tr>
+                        <tr><td>III</td><td>Server-side programming (PHP + MySQL)</td><td><a href="#registration">Registration</a> / <a href="#ajax">AJAX Search</a></td></tr>
+                        <tr><td>IV</td><td>PHP &amp; XML</td><td><a href="#xml">XML Course Feed</a></td></tr>
+                        <tr><td>V</td><td>AJAX &amp; Web Services</td><td><a href="#webservices">Web Services</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- HTML5 SECTION: multimedia, drag and drop -->
+        <!-- ============================================================ -->
+        <section id="html5" class="section section-alt">
+            <div class="section-head">
+                <p class="eyebrow">Unit I &mdash; Activity 5</p>
+                <h2>HTML5 multimedia &amp; drag-and-drop</h2>
+            </div>
+
+            <div class="two-col">
+                <div class="card">
+                    <h3>Audio &amp; video controls</h3>
+                    <p>Native HTML5 media elements &mdash; no plugins required.</p>
+                    <!-- UNIT I: HTML5 audio control -->
+                    <audio controls class="media-el">
+                        <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                        <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+
+                    <!-- UNIT I: HTML5 video control -->
+                    <video controls class="media-el" poster="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=60&auto=format">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <!-- UNIT II: Activity 5 - Drag and Drop matching activity -->
+                <div class="card">
+                    <h3>Activity 5: Drag &amp; drop matching</h3>
+                    <p>Drag each language onto the category it belongs to.</p>
+
+                    <div class="dnd-wrap">
+                        <div class="dnd-source" id="dndSource">
+                            <div class="dnd-item" draggable="true" data-answer="frontend" id="itemHTML">HTML</div>
+                            <div class="dnd-item" draggable="true" data-answer="frontend" id="itemCSS">CSS</div>
+                            <div class="dnd-item" draggable="true" data-answer="frontend" id="itemJS">JavaScript</div>
+                            <div class="dnd-item" draggable="true" data-answer="backend" id="itemPHP">PHP</div>
+                        </div>
+
+                        <div class="dnd-targets">
+                            <div class="dnd-target" data-category="frontend" id="dropFrontend">
+                                <h4>Client-side / Front-end</h4>
+                            </div>
+                            <div class="dnd-target" data-category="backend" id="dropBackend">
+                                <h4>Server-side / Back-end</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="dndFeedback" class="feedback" role="status"></p>
+                    <button class="btn btn-outline" id="dndReset" type="button">Reset activity</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CSS3 SECTION: playground -->
+        <!-- ============================================================ -->
+        <section id="css3" class="section">
+            <div class="section-head">
+                <p class="eyebrow">Unit I &mdash; Activity 2</p>
+                <h2>CSS3 playground</h2>
+            </div>
+
+            <div class="playground-grid">
+                <div class="card playground-controls">
+                    <h3>Controls</h3>
+                    <p>These map directly to CSS3 backgrounds, colors, borders and shadows.</p>
+
+                    <label for="pgBgColor">Background color
+                        <!-- UNIT I: HTML5 color input -->
+                        <input type="color" id="pgBgColor" value="#fdf6ec">
+                    </label>
+
+                    <label for="pgTextColor">Text color
+                        <input type="color" id="pgTextColor" value="#1b2a4a">
+                    </label>
+
+                    <label for="pgRadius">Border radius: <output id="pgRadiusVal">12</output>px
+                        <!-- UNIT I: HTML5 range input -->
+                        <input type="range" id="pgRadius" min="0" max="60" value="12">
+                    </label>
+
+                    <label for="pgShadow">Shadow intensity: <output id="pgShadowVal">10</output>px
+                        <input type="range" id="pgShadow" min="0" max="40" value="10">
+                    </label>
+
+                    <label for="pgFontSize">Font size: <output id="pgFontSizeVal">18</output>px
+                        <input type="range" id="pgFontSize" min="12" max="36" value="18">
+                    </label>
+
+                    <label for="pgBorderStyle">Border style
+                        <select id="pgBorderStyle">
+                            <option value="solid">Solid</option>
+                            <option value="dashed">Dashed</option>
+                            <option value="dotted">Dotted</option>
+                            <option value="double">Double</option>
+                        </select>
+                    </label>
+
+                    <button type="button" class="btn btn-outline" id="pgReset">Reset playground</button>
+                </div>
+
+                <div class="card playground-preview-wrap">
+                    <h3>Live preview</h3>
+                    <!-- Inline CSS demonstrated here as the JS-driven starting style -->
+                    <div id="pgPreview" class="playground-preview" style="background:#fdf6ec; color:#1b2a4a;">
+                        <h4>CSS3 Playground Card</h4>
+                        <p>Change the controls on the left. This box updates instantly using
+                        JavaScript that edits <code>element.style</code> &mdash; a live demo of
+                        CSS3 backgrounds, colors, border-radius and box-shadow.</p>
+                    </div>
+
+                    <div class="transform-demo-row">
+                        <p>CSS3 transform &amp; transition on hover:</p>
+                        <div class="transform-box" tabindex="0">Hover / focus me</div>
+                        <p>CSS3 keyframe animation:</p>
+                        <div class="pulse-box">Pulsing</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- JAVASCRIPT SECTION: validation activity, character counter -->
+        <!-- ============================================================ -->
+        <section id="javascript" class="section section-alt">
+            <div class="section-head">
+                <p class="eyebrow">Unit II &mdash; Activity 3</p>
+                <h2>JavaScript validation playground</h2>
+            </div>
+
+            <div class="card">
+                <p>Type into any field below. Validation runs live using regular expressions and
+                the <code>try/catch</code> exception pattern, entirely in <code>js/script.js</code>.</p>
+
+                <form id="jsValidationForm" class="form-grid" novalidate>
+                    <div class="form-field">
+                        <label for="valName">Full name</label>
+                        <input type="text" id="valName" placeholder="e.g. Aditi Sharma" autocomplete="off">
+                        <small class="hint" id="valNameMsg"></small>
+                    </div>
+                    <div class="form-field">
+                        <label for="valEmail">Email</label>
+                        <input type="text" id="valEmail" placeholder="e.g. aditi@example.com" autocomplete="off">
+                        <small class="hint" id="valEmailMsg"></small>
+                    </div>
+                    <div class="form-field">
+                        <label for="valPhone">Phone number</label>
+                        <input type="text" id="valPhone" placeholder="10 digit number" autocomplete="off">
+                        <small class="hint" id="valPhoneMsg"></small>
+                    </div>
+                    <div class="form-field">
+                        <label for="valPassword">Password</label>
+                        <input type="password" id="valPassword" placeholder="Min 8 chars, 1 number, 1 symbol" autocomplete="off">
+                        <small class="hint" id="valPasswordMsg"></small>
+                    </div>
+                    <div class="form-field">
+                        <label for="valDob">Date of birth</label>
+                        <input type="date" id="valDob">
+                        <small class="hint" id="valDobMsg"></small>
+                    </div>
+                    <div class="form-field">
+                        <label for="valBio">Short bio <span class="muted">(character counter demo)</span></label>
+                        <textarea id="valBio" maxlength="120" rows="3" placeholder="Tell us about yourself in 120 characters"></textarea>
+                        <small class="hint" id="valBioCount">0 / 120</small>
+                    </div>
+                </form>
+                <p id="valOverallMsg" class="feedback" role="status"></p>
+            </div>
+
+            <!-- UNIT II: Interactive table with search/filter functionality -->
+            <div class="card">
+                <h3>Interactive table: sample student records</h3>
+                <p>This table is filtered live with JavaScript &mdash; no server call needed.</p>
+                <input type="search" id="tableFilter" placeholder="Filter by name, course or gender&hellip;" class="filter-input" aria-label="Filter student table">
+                <div class="table-wrap">
+                    <table class="data-table" id="jsFilterTable">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-key="name">Name &#8645;</th>
+                                <th scope="col" data-key="course">Course &#8645;</th>
+                                <th scope="col" data-key="gender">Gender &#8645;</th>
+                                <th scope="col" data-key="year">Year &#8645;</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jsFilterTableBody">
+                            <!-- Rows injected by JavaScript from a JSON array: UNIT II JSON + DOM manipulation -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- REGISTRATION SECTION: HTML5 form + PHP backend -->
+        <!-- ============================================================ -->
+        <section id="registration" class="section">
+            <div class="section-head">
+                <p class="eyebrow">Unit I / III &mdash; Activity 1</p>
+                <h2>Student registration</h2>
+                <p class="section-sub">Submits to <code>php/register.php</code>, which validates input and stores it in the MySQL <code>students</code> table.</p>
+            </div>
+
+            <div class="two-col">
+                <!-- UNIT I: Complete HTML5 form control showcase -->
+                <form id="registrationForm" class="card form-grid" novalidate autocomplete="off">
+                    <div class="form-field">
+                        <label for="regName">Full name *</label>
+                        <input type="text" id="regName" name="name" required minlength="3" placeholder="Full name">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regEmail">Email *</label>
+                        <input type="email" id="regEmail" name="email" required placeholder="you@example.com">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regPhone">Phone *</label>
+                        <input type="tel" id="regPhone" name="phone" required pattern="[0-9]{10}" placeholder="10-digit number">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regPassword">Choose a password *</label>
+                        <input type="password" id="regPassword" name="password" required minlength="8" placeholder="Minimum 8 characters">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regAge">Age</label>
+                        <input type="number" id="regAge" name="age" min="15" max="80" placeholder="e.g. 19">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regDob">Date of birth *</label>
+                        <input type="date" id="regDob" name="dob" required>
+                    </div>
+
+                    <fieldset class="form-field">
+                        <legend>Gender *</legend>
+                        <label class="inline-label"><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label class="inline-label"><input type="radio" name="gender" value="Female"> Female</label>
+                        <label class="inline-label"><input type="radio" name="gender" value="Other"> Other</label>
+                    </fieldset>
+
+                    <div class="form-field">
+                        <label for="regCourse">Course *</label>
+                        <select id="regCourse" name="course" required>
+                            <option value="">-- Select a course --</option>
+                            <option value="Internet Programming">Internet Programming</option>
+                            <option value="Data Structures">Data Structures</option>
+                            <option value="Computer Networks">Computer Networks</option>
+                            <option value="Database Systems">Database Systems</option>
+                            <option value="Operating Systems">Operating Systems</option>
+                        </select>
+                    </div>
+
+                    <fieldset class="form-field">
+                        <legend>Interests</legend>
+                        <label class="inline-label"><input type="checkbox" name="interests[]" value="Web Dev"> Web Development</label>
+                        <label class="inline-label"><input type="checkbox" name="interests[]" value="AI"> Artificial Intelligence</label>
+                        <label class="inline-label"><input type="checkbox" name="interests[]" value="Cloud"> Cloud Computing</label>
+                    </fieldset>
+
+                    <div class="form-field">
+                        <label for="regExperience">Comfort with coding: <output id="regExperienceVal">5</output>/10</label>
+                        <input type="range" id="regExperience" name="experience" min="1" max="10" value="5">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="regFavColor">Favourite color</label>
+                        <input type="color" id="regFavColor" name="favcolor" value="#1b2a4a">
+                    </div>
+
+                    <div class="form-field form-field-wide">
+                        <label for="regNotes">Additional notes</label>
+                        <textarea id="regNotes" name="notes" rows="3" placeholder="Anything else we should know?"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="reset" class="btn btn-ghost">Reset</button>
+                    </div>
+
+                    <p id="regFeedback" class="feedback" role="status" aria-live="polite"></p>
+                </form>
+
+                <aside class="card aside-card">
+                    <h3>What happens when you press Register</h3>
+                    <ol class="flow-list">
+                        <li>JavaScript intercepts <code>submit</code>, runs client-side checks (UNIT II)</li>
+                        <li><code>fetch()</code> sends a <strong>POST</strong> request to <code>php/register.php</code> (UNIT V AJAX)</li>
+                        <li>PHP re-validates and sanitizes every field (UNIT III server-side validation)</li>
+                        <li>PHP inserts the row using a <strong>prepared statement</strong> (UNIT III MySQL)</li>
+                        <li>PHP echoes a JSON success/error object (UNIT IV/V JSON)</li>
+                        <li>JavaScript reads the JSON and shows a message &mdash; no reload</li>
+                    </ol>
+                    <div class="callout">
+                        <strong>Note for evaluators:</strong> if PHP/MySQL is not running (e.g. viewing this
+                        as static HTML), the form still runs full client-side validation and shows a
+                        simulated response so the demo remains visible.
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- QUIZ SECTION -->
+        <!-- ============================================================ -->
+        <section id="quiz" class="section section-alt">
+            <div class="section-head">
+                <p class="eyebrow">Unit II &mdash; Activity 4</p>
+                <h2>Internet Programming quiz</h2>
+                <p class="section-sub">10 questions. Your score is calculated in JavaScript, then saved to MySQL through <code>php/quiz.php</code>.</p>
+            </div>
+
+            <div class="card">
+                <div class="form-field" id="quizNameField">
+                    <label for="quizStudentName">Your name (for the leaderboard record)</label>
+                    <input type="text" id="quizStudentName" placeholder="Enter your name" required>
+                </div>
+                <form id="quizForm"></form>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" id="quizSubmitBtn">Submit Quiz</button>
+                    <button type="button" class="btn btn-ghost" id="quizResetBtn">Restart</button>
+                </div>
+                <div id="quizResult" class="quiz-result" hidden></div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- AJAX SECTION: search -->
+        <!-- ============================================================ -->
+        <section id="ajax" class="section">
+            <div class="section-head">
+                <p class="eyebrow">Unit V &mdash; Activity 6</p>
+                <h2>AJAX student/course search</h2>
+                <p class="section-sub">Talks to <code>php/search.php</code>, which queries MySQL and returns JSON.</p>
+            </div>
+
+            <div class="card">
+                <label for="ajaxSearchInput">Search by name, email or course</label>
+                <input type="text" id="ajaxSearchInput" class="filter-input" placeholder="Start typing to search registered students&hellip;">
+                <div id="ajaxSearchStatus" class="feedback" role="status"></div>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Name</th><th>Email</th><th>Course</th><th>Registered</th></tr>
+                        </thead>
+                        <tbody id="ajaxResultsBody">
+                            <tr><td colspan="4" class="muted">Type above to search, or click "Show all" to load every record.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-outline" id="ajaxShowAllBtn">Show all records</button>
+            </div>
+
+            <div class="card explain-card">
+                <h3>AJAX request/response, made visible</h3>
+                <p>Click below to fire a real request and see each stage of the exchange.</p>
+                <button type="button" class="btn btn-outline" id="ajaxDemoBtn">Run AJAX demo</button>
+                <div class="code-columns">
+                    <div>
+                        <h4>Request</h4>
+                        <pre id="ajaxDemoRequest" class="code-block">Not sent yet.</pre>
+                    </div>
+                    <div>
+                        <h4>Response (JSON)</h4>
+                        <pre id="ajaxDemoResponse" class="code-block">Awaiting response.</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- XML SECTION -->
+        <!-- ============================================================ -->
+        <section id="xml" class="section section-alt">
+            <div class="section-head">
+                <p class="eyebrow">Unit IV</p>
+                <h2>XML course feed</h2>
+                <p class="section-sub"><code>xml/courses.xml</code> is fetched and parsed with the DOM XML parser, then rendered as cards below.</p>
+            </div>
+
+            <div class="card">
+                <button type="button" class="btn btn-outline" id="loadXmlBtn">Load courses from XML</button>
+                <p id="xmlStatus" class="feedback" role="status"></p>
+                <div id="xmlCourseCards" class="course-card-grid"></div>
+            </div>
+
+            <div class="card explain-card">
+                <h3>XML, XSLT and feeds &mdash; concept notes</h3>
+                <div class="two-col">
+                    <div>
+                        <h4>Raw XML structure</h4>
+                        <pre class="code-block">&lt;courses&gt;
+  &lt;course id="IP101" level="core"&gt;
+    &lt;title&gt;Internet Programming&lt;/title&gt;
+    &lt;duration&gt;60 hrs&lt;/duration&gt;
+  &lt;/course&gt;
+&lt;/courses&gt;</pre>
+                        <p><code>id</code> and <code>level</code> above are XML <strong>attributes</strong>;
+                        <code>&lt;title&gt;</code> and <code>&lt;duration&gt;</code> are <strong>elements</strong>.
+                        A well-formed document plus a schema/DTD gives you <strong>XML validation</strong>.</p>
+                    </div>
+                    <div>
+                        <h4>XSLT &amp; RSS/Atom, conceptually</h4>
+                        <p><strong>XSLT</strong> (<code>xml/courses.xsl</code>) is a stylesheet language that
+                        transforms XML into HTML/plain text on the server or in a capable browser &mdash;
+                        the same idea as CSS, but for restructuring data rather than just styling it.</p>
+                        <p><strong>RSS/Atom feeds</strong> are just XML documents with a fixed vocabulary
+                        (<code>&lt;item&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;pubDate&gt;</code>&hellip;)
+                        that feed readers poll periodically &mdash; our <code>courses.xml</code> mirrors that pattern.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- WEB SERVICES SECTION -->
+        <!-- ============================================================ -->
+        <section id="webservices" class="section">
+            <div class="section-head">
+                <p class="eyebrow">Unit V &mdash; Activity 8</p>
+                <h2>Web service demonstration</h2>
+                <p class="section-sub"><code>php/api.php</code> is a tiny REST-style JSON API you can call directly.</p>
+            </div>
+
+            <div class="card">
+                <div class="api-controls">
+                    <label for="apiEndpointSelect">Choose an endpoint</label>
+                    <select id="apiEndpointSelect">
+                        <option value="students">GET /php/api.php?resource=students</option>
+                        <option value="courses">GET /php/api.php?resource=courses</option>
+                        <option value="quiz_results">GET /php/api.php?resource=quiz_results</option>
+                    </select>
+                    <button type="button" class="btn btn-primary" id="apiCallBtn">Call API</button>
+                </div>
+                <div class="code-columns">
+                    <div>
+                        <h4>HTTP Request</h4>
+                        <pre id="apiRequestBlock" class="code-block">Choose an endpoint and click "Call API".</pre>
+                    </div>
+                    <div>
+                        <h4>HTTP Response (JSON)</h4>
+                        <pre id="apiResponseBlock" class="code-block">&hellip;</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card explain-card">
+                <h3>SOAP &amp; WSDL &mdash; concept only</h3>
+                <p>
+                    This project uses a lightweight <strong>REST-style</strong> JSON web service, because that
+                    is what modern browsers and PHP handle natively. The older <strong>SOAP</strong> style is
+                    included here only as a concept comparison, since it still appears in the syllabus:
+                </p>
+                <table class="data-table">
+                    <thead><tr><th>Aspect</th><th>REST (used in this project)</th><th>SOAP (concept only)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Data format</td><td>JSON</td><td>XML (strict envelope)</td></tr>
+                        <tr><td>Contract</td><td>Informal (URL + params)</td><td>WSDL file describes every operation</td></tr>
+                        <tr><td>Transport</td><td>Plain HTTP GET/POST</td><td>Usually HTTP, wrapped in a SOAP envelope</td></tr>
+                        <tr><td>Typical use</td><td>Web &amp; mobile apps</td><td>Enterprise/banking integrations</td></tr>
+                    </tbody>
+                </table>
+                <p>A minimal SOAP request would look like this (shown for concept only &mdash; not executed):</p>
+                <pre class="code-block">&lt;soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"&gt;
+  &lt;soap:Body&gt;
+    &lt;GetStudent xmlns="http://example.org/ip"&gt;
+      &lt;StudentId&gt;1&lt;/StudentId&gt;
+    &lt;/GetStudent&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</pre>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ACTIVITY 10: TO-DO LIST (CRUD) -->
+        <!-- ============================================================ -->
+        <section id="todo" class="section">
+            <div class="section-head">
+                <p class="eyebrow">Activity 10: CRUD Operations</p>
+                <h2>To-Do List (PHP, MySQL, AJAX)</h2>
+                <p>Demonstrating Create, Read, Update, and Delete operations without page reloads.</p>
+            </div>
+            <div class="form-container">
+                <form id="todoForm" class="todo-form" onsubmit="event.preventDefault();">
+                    <div class="form-group" style="display: flex; gap: 1rem;">
+                        <input type="text" id="todoTask" placeholder="Enter a new task" required style="flex: 1;" />
+                        <button type="button" class="btn btn-primary" onclick="addTodo()">Add Task</button>
+                    </div>
+                </form>
+                <div id="todoStatus" class="status-msg"></div>
+                <ul id="todoList" class="todo-list" style="list-style: none; padding: 0; margin-top: 1.5rem;">
+                    <!-- Tasks will be loaded here via AJAX -->
+                    <li><em>Loading tasks...</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SYLLABUS COVERAGE TABLE -->
+        <!-- ============================================================ -->
+        <section id="syllabus" class="section section-alt">
+            <div class="section-head">
+                <p class="eyebrow">Reference</p>
+                <h2>Internet Programming &ndash; Syllabus Coverage</h2>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table" id="syllabusTable">
+                    <caption>Mapping of every syllabus topic to the feature implementing it on this page</caption>
+                    <thead>
+                        <tr><th>Unit</th><th>Topic</th><th>Implemented feature</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>I</td><td>HTML5</td><td>Registration form</td></tr>
+                        <tr><td>I</td><td>CSS3</td><td>CSS playground</td></tr>
+                        <tr><td>I</td><td>Drag &amp; Drop</td><td>Matching activity</td></tr>
+                        <tr><td>I</td><td>Audio/Video</td><td>Multimedia section</td></tr>
+                        <tr><td>II</td><td>JavaScript</td><td>Validation and quiz</td></tr>
+                        <tr><td>II</td><td>DOM</td><td>Dynamic UI (clock, table, cards)</td></tr>
+                        <tr><td>III</td><td>JSON</td><td>API response</td></tr>
+                        <tr><td>II / V</td><td>AJAX</td><td>Search &amp; async requests</td></tr>
+                        <tr><td>III</td><td>PHP</td><td>Form processing</td></tr>
+                        <tr><td>III</td><td>MySQL</td><td>Database connectivity</td></tr>
+                        <tr><td>III</td><td>Sessions/Cookies</td><td>Login/session demo</td></tr>
+                        <tr><td>IV</td><td>XML</td><td>Course feed</td></tr>
+                        <tr><td>IV</td><td>XSLT</td><td>XML transformation (concept)</td></tr>
+                        <tr><td>V</td><td>AJAX</td><td>Asynchronous requests</td></tr>
+                        <tr><td>V</td><td>Web Services</td><td>PHP JSON API</td></tr>
+                        <tr><td>V</td><td>SOAP/WSDL</td><td>Demonstration/explanation</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SESSION/COOKIE DEMO (UNIT III) -->
+        <!-- ============================================================ -->
+        <section id="session-demo" class="section">
+            <div class="section-head">
+                <p class="eyebrow">Unit III &mdash; Activity 9 (bonus)</p>
+                <h2>Sessions &amp; cookies mini-demo</h2>
+                <p class="section-sub">A tiny "remember me" login, backed by PHP <code>$_SESSION</code> and a cookie.</p>
+            </div>
+            <div class="card">
+                <form id="sessionForm" class="form-grid" novalidate>
+                    <div class="form-field">
+                        <label for="sessionName">Display name</label>
+                        <input type="text" id="sessionName" placeholder="e.g. Priya">
+                    </div>
+                    <div class="form-field">
+                        <label class="inline-label"><input type="checkbox" id="sessionRemember" checked> Remember me (sets a cookie)</label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="sessionLoginBtn" class="btn btn-primary">"Log in"</button>
+                        <button type="button" id="sessionLogoutBtn" class="btn btn-ghost">Log out</button>
+                    </div>
+                </form>
+                <p id="sessionStatus" class="feedback" role="status"></p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CONTACT SECTION -->
+        <!-- ============================================================ -->
+        <section id="contact" class="section section-alt">
+            <div class="section-head">
+                <p class="eyebrow">Get in touch</p>
+                <h2>Contact / feedback</h2>
+            </div>
+            <div class="two-col">
+                <form id="contactForm" class="card form-grid" novalidate>
+                    <div class="form-field">
+                        <label for="contactName">Name</label>
+                        <input type="text" id="contactName" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+                    <div class="form-field form-field-wide">
+                        <label for="contactMsg">Message</label>
+                        <textarea id="contactMsg" rows="4" maxlength="300" required></textarea>
+                        <small class="hint" id="contactMsgCount">0 / 300</small>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Send message</button>
+                    </div>
+                    <p id="contactFeedback" class="feedback" role="status"></p>
+                </form>
+                <aside class="card aside-card">
+                    <h3>Faculty / evaluator note</h3>
+                    <p>This is a client-side-only contact form for demonstration; in a full deployment
+                    it would post to a PHP mailer script. Full details of running the PHP/MySQL parts
+                    of this project are in <strong>README.md</strong>.</p>
+                    <address>
+                        Department of Computer Applications<br>
+                        Internet Programming Lab<br>
+                        <a href="mailto:ip-lab@example.edu">ip-lab@example.edu</a>
+                    </address>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- MODAL (used for quiz answer review) -->
+    <!-- ============================================================ -->
+    <div class="modal-overlay" id="modalOverlay" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalClose" aria-label="Close dialog">&times;</button>
+            <h3 id="modalTitle">Details</h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- UNIT I: Semantic FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <p class="brand-text">Student Web Portal</p>
+                <p class="muted">Internet Programming Lab &mdash; academic mini-project.</p>
+            </div>
+            <div>
+                <h4>Quick links</h4>
+                <nav aria-label="Footer">
+                    <a href="#registration">Registration</a>
+                    <a href="#quiz">Quiz</a>
+                    <a href="#ajax">AJAX Search</a>
+                    <a href="#xml">XML Feed</a>
+                </nav>
+            </div>
+            <div>
+                <h4>Stack</h4>
+                <p class="muted">HTML5 &middot; CSS3 &middot; JavaScript &middot; PHP &middot; MySQL &middot; XML</p>
+            </div>
+        </div>
+        <p class="footer-bottom">Built for academic purposes &mdash; Internet Programming Lab &copy; <span id="footerYear"></span></p>
+    </footer>
+
+    <!-- UNIT II: External JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
