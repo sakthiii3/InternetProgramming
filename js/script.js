@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initWebServiceDemo();
     initSessionDemo();
     initContactForm();
-    initModal();
+
     document.getElementById("footerYear").textContent = new Date().getFullYear();
 });
 
@@ -915,29 +915,7 @@ function initContactForm() {
 /* =====================================================================
    16. MODAL — used for quiz/answer detail popups where useful
    ===================================================================== */
-function initModal() {
-    const overlay = document.getElementById("modalOverlay");
-    const closeBtn = document.getElementById("modalClose");
-    closeBtn.addEventListener("click", closeModal);
-    overlay.addEventListener("click", function (e) {
-        if (e.target === overlay) closeModal();
-    });
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeModal();
-    });
-}
-function openModal(title, bodyHtml) {
-    document.getElementById("modalTitle").textContent = title;
-    document.getElementById("modalBody").innerHTML = bodyHtml;
-    const overlay = document.getElementById("modalOverlay");
-    overlay.style.setProperty('display', 'flex', 'important');
-    overlay.hidden = false;
-}
-function closeModal() {
-    const overlay = document.getElementById("modalOverlay");
-    overlay.style.setProperty('display', 'none', 'important');
-    overlay.hidden = true;
-}
+
 
 /* =====================================================================
    ACTIVITY 10: TO-DO LIST (CRUD via AJAX)
