@@ -929,10 +929,14 @@ function initModal() {
 function openModal(title, bodyHtml) {
     document.getElementById("modalTitle").textContent = title;
     document.getElementById("modalBody").innerHTML = bodyHtml;
-    document.getElementById("modalOverlay").hidden = false;
+    const overlay = document.getElementById("modalOverlay");
+    overlay.style.setProperty('display', 'flex', 'important');
+    overlay.hidden = false;
 }
 function closeModal() {
-    document.getElementById("modalOverlay").hidden = true;
+    const overlay = document.getElementById("modalOverlay");
+    overlay.style.setProperty('display', 'none', 'important');
+    overlay.hidden = true;
 }
 
 /* =====================================================================
